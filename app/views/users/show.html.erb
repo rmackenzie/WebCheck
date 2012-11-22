@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Pass:</b>
+  <%= @user.pass %>
+</p>
+
+<h2>Courses</h2>
+<%= link_to 'Update Courses', update_courses_link_path(@user.id) %>
+<%= render @user.courses %>
+
+<h2>Add a new course:</h2>
+<%= form_for([@user, @user.courses.build]) do |f| %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :weblink %><br />
+		<%= f.text_field :weblink %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
