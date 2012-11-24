@@ -1,6 +1,6 @@
 Test1::Application.routes.draw do
  match '/users/:user_id/courses/update_courses' => 'courses#update_courses'
-
+ 
   resources :users do
     resources :courses
   end
