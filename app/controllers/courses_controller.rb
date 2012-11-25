@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @course = @user.courses.build(params[:course])
-  
+    @course.updated = false
     weblink = @course.weblink
     begin
       html = open(weblink) {|f| f.read}

@@ -1,0 +1,26 @@
+<%= form_for([@user, @user.courses.build]) do |f| %>
+  <% if @course.respond_to?(:errors) && @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% @course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :weblink %><br />
+		<%= f.text_field :weblink %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
