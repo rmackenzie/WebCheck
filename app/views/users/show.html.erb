@@ -1,21 +1,13 @@
 
 
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Pass:</b>
-  <%= @user.pass %>
-</p>
-
 <h2>Courses</h2>
-<%= link_to 'Update Courses', update_courses_link_path(@user.id) %>
-<%= render @user.courses %>
-
+<% if !@user.courses.empty? %>
+	<%= link_to 'Check all courses for updates', update_courses_link_path(@user.id) %>
+	<%= render @user.courses %>
+<% else %>
+	No Courses Added! To Add a course, enter its information below.
+<% end %>
 <h2>Add a new course:</h2>
 <%= render 'courses/form' %>
 
