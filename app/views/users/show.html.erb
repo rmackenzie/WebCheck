@@ -5,7 +5,23 @@
 
 <% if !@user.courses.empty? %>
 	<%= link_to 'Check all courses for updates', update_courses_link_path(@user.id) %>
-	<%= render @user.courses %>
+	<% if @user.courses.first.name!='' %>
+		<table> 
+		<tr>
+			<td>
+				Course Title
+			</td>
+			<td>
+				Updated Since last check?
+			</td>
+			<td>
+				Delete Course From Listing
+			</td>
+		</tr>
+		<%= render @user.courses %>
+		</tr>
+		</table>
+	<% end %>
 <% else %>
 	No Courses Added! To Add a course, enter its information below.
 <% end %>

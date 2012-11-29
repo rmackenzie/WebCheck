@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
     weblink = c.weblink
       html = open(weblink) {|f| f.read}
       if html != c.html_source
-        c.update_attributes({:html_source => html, :updated=> true})
+        c.update_attributes({:html_source => html, :updated => true})
       else
         c.update_attributes({:updated => false})
       end

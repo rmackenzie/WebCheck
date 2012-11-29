@@ -1,17 +1,6 @@
 <p>
-	<% if course.name!='' %>
-	<table> 
-		<tr>
-			<td>
-				Course Title
-			</td>
-			<td>
-				Updated Since last check?
-			</td>
-			<td>
-				Delete Course From Listing
-			</td>
-		</tr>
+
+
 		<tr>
 			<td>
 					<%= link_to course.name, course.weblink %>
@@ -22,13 +11,10 @@
 					<% else %>
 						Course Website has changed!
 					<% end %>
-				<% end %>
 			</td>
 			<td>
 					<%= link_to 'Delete', [course.user, course],
 										:confirm => 'Are you sure you want to delete this course?',
 										:method => :delete	 %>
 			</td>	
-		</tr>
-	</table>
 </p>
